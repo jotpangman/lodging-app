@@ -290,32 +290,19 @@ def evaluate_support(
 # =========================================================
 
 def register_korean_font():
-    """운영체제에 설치된 한글 글꼴을 찾아 등록합니다."""
-    font_candidates = [
-        # Windows
-        "C:/Windows/Fonts/malgun.ttf",
-        "C:/Windows/Fonts/malgunbd.ttf",
-        # Linux
-        "/usr/share/fonts/truetype/nanum/NanumGothic.ttf",
-        "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
-        # macOS
-        "/System/Library/Fonts/AppleSDGothicNeo.ttc",
-    ]
+    """프로젝트에 포함된 한글 글꼴을 등록합니다."""
+    base_dir = Path(__file__).resolve().parent
+    font_path = base_dir / "NotoSansKR.ttf"
 
-    normal_font_path = None
-
-    for path in font_candidates:
-        if Path(path).exists():
-            normal_font_path = path
-            break
-
-    if not normal_font_path:
+    if not font_path.exists():
         raise FileNotFoundError(
-            "한글 글꼴을 찾지 못했습니다. "
-            "Windows에서는 맑은 고딕, Linux에서는 나눔고딕을 설치해 주세요."
+            "NotoSansKR.ttf 파일을 app.py와 같은 폴더에 넣어 주세요."
         )
 
-    pdfmetrics.registerFont(TTFont("KoreanFont", normal_font_path))
+    pdfmetrics.registerFont(
+        TTFont("KoreanFont", str(font_path))
+    )
+
     return "KoreanFont"
 
 
