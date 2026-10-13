@@ -35,9 +35,6 @@ from reportlab.platypus import (
 
 load_dotenv()
 
-load_dotenv()
-
-
 def get_secret(name):
     """로컬에서는 .env, 배포 환경에서는 Streamlit Secrets를 읽습니다."""
     local_value = os.getenv(name, "").strip()
