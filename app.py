@@ -35,21 +35,37 @@ from reportlab.platypus import (
 
 load_dotenv()
 
-NAVER_GEOCODING_CLIENT_ID = os.getenv(
-    "NAVER_GEOCODING_CLIENT_ID", ""
-).strip()
+load_dotenv()
 
-NAVER_GEOCODING_CLIENT_SECRET = os.getenv(
-    "NAVER_GEOCODING_CLIENT_SECRET", ""
-).strip()
 
-NAVER_DIRECTIONS_CLIENT_ID = os.getenv(
-    "NAVER_DIRECTIONS_CLIENT_ID", ""
-).strip()
+def get_secret(name):
+    """로컬에서는 .env, 배포 환경에서는 Streamlit Secrets를 읽습니다."""
+    local_value = os.getenv(name, "").strip()
 
-NAVER_DIRECTIONS_CLIENT_SECRET = os.getenv(
-    "NAVER_DIRECTIONS_CLIENT_SECRET", ""
-).strip()
+    if local_value:
+        return local_value
+
+    try:
+        return str(st.secrets[name]).strip()
+    except (KeyError, FileNotFoundError):
+        return ""
+
+
+NAVER_GEOCODING_CLIENT_ID = get_secret(
+    "NAVER_GEOCODING_CLIENT_ID"
+)
+
+NAVER_GEOCODING_CLIENT_SECRET = get_secret(
+    "NAVER_GEOCODING_CLIENT_SECRET"
+)
+
+NAVER_DIRECTIONS_CLIENT_ID = get_secret(
+    "NAVER_DIRECTIONS_CLIENT_ID"
+)
+
+NAVER_DIRECTIONS_CLIENT_SECRET = get_secret(
+    "NAVER_DIRECTIONS_CLIENT_SECRET"
+)
 
 # 현재 사용 중인 NAVER Cloud Maps 환경에 따라 URL이 다를 수 있으므로
 # 필요하면 이 값만 변경하면 됩니다.
