@@ -424,7 +424,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
                 ),
             ]
         ],
-        colWidths=[ * mm, 154 * mm],
+        colWidths=[30 * mm, 156 * mm],
         rowHeights=[14 * mm],
     )
 
