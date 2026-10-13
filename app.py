@@ -356,10 +356,10 @@ def build_pdf(data, car_capture=None, transit_capture=None):
     document = BaseDocTemplate(
         pdf_buffer,
         pagesize=A4,
-        leftMargin=14 * mm,
-        rightMargin=14 * mm,
-        topMargin=12 * mm,
-        bottomMargin=12 * mm,
+        leftMargin=6 * mm,
+        rightMargin=6 * mm,
+        topMargin=7 * mm,
+        bottomMargin=7 * mm,
         title="현장 직원숙소 사용 요청의 건",
         author="직원숙소 품의서 자동작성 시스템",
     )
@@ -379,8 +379,8 @@ def build_pdf(data, car_capture=None, transit_capture=None):
     normal_style = ParagraphStyle(
         name="NormalKorean",
         fontName=font_name,
-        fontSize=8.5,
-        leading=12,
+        fontSize=9.5,
+        leading=14,
         wordWrap="CJK",
     )
 
@@ -393,8 +393,8 @@ def build_pdf(data, car_capture=None, transit_capture=None):
     title_style = ParagraphStyle(
         name="TitleKorean",
         parent=center_style,
-        fontSize=20,
-        leading=25,
+        fontSize=24,
+        leading=29,
         spaceAfter=8,
     )
 
@@ -457,7 +457,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
                 make_paragraph(purpose_text, section_style),
             ]
         ],
-        colWidths=[28 * mm, 150 * mm],
+        colWidths=[30 * mm, 156 * mm],
         rowHeights=[16 * mm],
     )
 
@@ -480,7 +480,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
                 make_paragraph(applicant_text, section_style),
             ]
         ],
-        colWidths=[28 * mm, 150 * mm],
+        colWidths=[30 * mm, 156 * mm],
         rowHeights=[16 * mm],
     )
 
@@ -540,7 +540,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
                 make_paragraph(transit_status, center_style),
             ],
         ],
-        colWidths=[16 * mm, 43 * mm, 65 * mm, 25 * mm],
+        colWidths=[18 * mm, 44 * mm, 64 * mm, 28 * mm],
         rowHeights=[
             10 * mm,
             12 * mm,
@@ -577,7 +577,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
                 criteria_content,
             ]
         ],
-        colWidths=[28 * mm, 150 * mm],
+        colWidths=[30 * mm, 156 * mm],
     )
 
     criteria_wrapper.setStyle(common_section_style())
@@ -640,7 +640,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
                 period_content,
             ]
         ],
-        colWidths=[28 * mm, 150 * mm],
+        colWidths=[30 * mm, 156 * mm],
     )
 
     period_wrapper.setStyle(common_section_style())
@@ -660,7 +660,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
                 ),
             ]
         ],
-        colWidths=[28 * mm, 150 * mm],
+        colWidths=[30 * mm, 156 * mm],
         rowHeights=[15 * mm],
     )
 
