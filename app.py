@@ -514,7 +514,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
                     center_style,
                 ),
                 make_paragraph(
-                    "현장 행정구역 외",
+                    "행정구역 외",
                     center_style,
                 ),
             ],
