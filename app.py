@@ -424,7 +424,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
                 ),
             ]
         ],
-        colWidths=[24 * mm, 154 * mm],
+        colWidths=[ * mm, 154 * mm],
         rowHeights=[14 * mm],
     )
 
@@ -540,7 +540,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
                 make_paragraph(transit_status, center_style),
             ],
         ],
-        colWidths=[18 * mm, 44 * mm, 64 * mm, 28 * mm],
+        colWidths=[16 * mm, 43 * mm, 65 * mm, 25 * mm],
         rowHeights=[
             10 * mm,
             12 * mm,
@@ -689,7 +689,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
                 make_paragraph(special_text, section_style),
             ]
         ],
-        colWidths=[28 * mm, 150 * mm],
+        colWidths=[30 * mm, 156 * mm],
         rowHeights=[37 * mm],
     )
 
@@ -708,7 +708,7 @@ def build_pdf(data, car_capture=None, transit_capture=None):
 
     attachment_table = Table(
         [[make_paragraph(attachment_text, section_style)]],
-        colWidths=[178 * mm],
+        colWidths=[186 * mm],
         rowHeights=[25 * mm],
     )
 
