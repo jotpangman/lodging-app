@@ -369,7 +369,7 @@ def build_pdf(data):
         rightMargin=6 * mm,
         topMargin=7 * mm,
         bottomMargin=7 * mm,
-        title="현장 직원숙소 사용 요청의 건",
+        title="숙소 사용 요청 품의서",
         author="직원숙소 품의서 자동작성 시스템",
     )
 
@@ -766,12 +766,12 @@ def common_section_style():
 # =========================================================
 
 st.set_page_config(
-    page_title="직원숙소 품의서 자동작성",
+    page_title="숙소 사용 요청 품의서 자동작성",
     page_icon="🏠",
     layout="wide",
 )
 
-st.title("🏠 현장 직원숙소 품의서 자동작성")
+st.title("🏠 숙소 사용 요청 품의서 자동작성")
 st.caption(
     "주소 후보를 확인한 뒤 자동차 이동거리와 시간을 조회하고, "
     "네이버 지도에서 확인한 대중교통 시간을 반영해 품의서 PDF를 생성합니다."
